@@ -16,7 +16,7 @@ jobs:
 
     env:
       Solution_Name: FrancomGroup_TestProject_JackFennell.sln  
-      Test_Project_Path: FrancomGroup_TestProject_JackFennell.csproj  
+      Test_Project_Path:  FrancomGroup_TestProject_JackFennell/FrancomGroup_TestProject_JackFennell.csproj  
     
     steps:
     - name: Checkout Code
