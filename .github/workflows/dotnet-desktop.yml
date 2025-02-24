@@ -16,7 +16,7 @@ jobs:
 
     env:
       Solution_Name: FrancomGroup_TestProject_JackFennell.sln  
-      Test_Project_Path: FrancomGroup_TestProject_JackFennell.Tests/FrancomGroup_TestProject_JackFennell.Tests.csproj  # Update this with the correct test project path.
+      Test_Project_Path: FrancomGroup_TestProject_JackFennell.csproj  
     
     steps:
     - name: Checkout Code
@@ -28,7 +28,7 @@ jobs:
     - name: Install .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x  # Change this to match your project’s actual .NET version
+        dotnet-version: 9.0.x  
 
     # Add MSBuild to the PATH
     - name: Setup MSBuild.exe
