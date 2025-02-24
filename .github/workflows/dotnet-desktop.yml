@@ -1,0 +1,74 @@
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: windows-latest  
+
+    env:
+      Solution_Name: FrancomGroup_TestProject_JackFennell.sln  
+      Test_Project_Path:  FrancomGroup_TestProject_JackFennell/FrancomGroup_TestProject_JackFennell.csproj  
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    # Install the correct .NET version
+    - name: Install .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x  
+
+    # Add MSBuild to the PATH
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v2
+
+    # Restore Dependencies
+    - name: Restore Dependencies
+      run: dotnet restore ${{ env.Solution_Name }}
+
+    # Build the Solution
+    - name: Build Solution
+      run: dotnet build ${{ env.Solution_Name }} --configuration ${{ matrix.configuration }} --no-restore
+
+    # Install NUnit Test Adapter (to ensure tests are discovered)
+    - name: Install Test Dependencies
+      run: |
+        dotnet add ${{ env.Test_Project_Path }} package NUnit
+        dotnet add ${{ env.Test_Project_Path }} package NUnit3TestAdapter
+        dotnet add ${{ env.Test_Project_Path }} package Microsoft.NET.Test.Sdk
+
+    # Run Unit Tests
+    - name: Run Tests
+      run: dotnet test ${{ env.Test_Project_Path }} --configuration ${{ matrix.configuration }} --no-build --logger "trx;LogFileName=test-results.trx"
+
+    # Upload Test Results as Artifacts
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: Test Results
+        path: TestResults/test-results.trx
+
+    # Restore the application (if required for deployment)
+    - name: Restore the application
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
+
+    # Upload build artifacts (for packaging)
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: MSIX Package
+        path: ${{ env.Wap_Project_Directory }}\AppPackages
