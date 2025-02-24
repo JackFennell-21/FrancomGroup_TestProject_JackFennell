@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FrancomGroup_TestProject_JackFennell")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d27f72aa2bab997b3dd1b60ba60a32c119c8a41")]
 [assembly: System.Reflection.AssemblyProductAttribute("FrancomGroup_TestProject_JackFennell")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FrancomGroup_TestProject_JackFennell")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

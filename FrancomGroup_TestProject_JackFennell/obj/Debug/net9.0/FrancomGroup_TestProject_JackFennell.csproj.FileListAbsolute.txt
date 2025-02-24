@@ -102,3 +102,4 @@ c:\Users\uqmli40\Desktop\Jack\FrancomGroup_TestProject_JackFennell\FrancomGroup_
 c:\Users\uqmli40\Desktop\Jack\FrancomGroup_TestProject_JackFennell\FrancomGroup_TestProject_JackFennell\bin\Debug\net9.0\selenium-manager\windows\selenium-manager.exe
 c:\Users\uqmli40\Desktop\Jack\FrancomGroup_TestProject_JackFennell\FrancomGroup_TestProject_JackFennell\bin\Debug\net9.0\WebDriver.Support.dll
 c:\Users\uqmli40\Desktop\Jack\FrancomGroup_TestProject_JackFennell\FrancomGroup_TestProject_JackFennell\bin\Debug\net9.0\WebDriver.dll
+C:\Users\uqmli40\Desktop\Jack\FrancomGroup_TestProject_JackFennell\FrancomGroup_TestProject_JackFennell\obj\Debug\net9.0\FrancomGroup_TestProject_JackFennell.sourcelink.json
